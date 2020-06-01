@@ -1,5 +1,11 @@
-[Tue Jun 02 05:11:37.345849 2020] [mpm_winnt:notice] [pid 14268:tid 868] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Tue Jun 02 05:11:37.345849 2020] [mpm_winnt:notice] [pid 14268:tid 868] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Tue Jun 02 05:11:37.345849 2020] [core:notice] [pid 14268:tid 868] AH00094: Command line: 'C:\\Users\\bingk\\Desktop\\Code\\USBWebserver v8.6/apache2/bin/httpd_usbwv8.exe -d C:/Users/bingk/Desktop/Code/USBWebserver v8.6/apache2'
-[Tue Jun 02 05:11:37.350846 2020] [mpm_winnt:notice] [pid 14268:tid 868] AH00418: Parent: Created child process 20908
-[Tue Jun 02 05:11:42.556844 2020] [mpm_winnt:notice] [pid 20908:tid 856] AH00354: Child: Starting 64 worker threads.
+[Tue Jun 02 05:51:51.018968 2020] [mpm_winnt:notice] [pid 24536:tid 740] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Tue Jun 02 05:51:51.019967 2020] [mpm_winnt:notice] [pid 24536:tid 740] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Tue Jun 02 05:51:51.019967 2020] [core:notice] [pid 24536:tid 740] AH00094: Command line: 'C:\\Users\\bingk\\Desktop\\Github\\Database-Server/apache2/bin/httpd_usbwv8.exe -d C:/Users/bingk/Desktop/Github/Database-Server/apache2'
+[Tue Jun 02 05:51:51.037958 2020] [mpm_winnt:notice] [pid 24536:tid 740] AH00418: Parent: Created child process 2608
+[Tue Jun 02 05:51:55.887159 2020] [mpm_winnt:notice] [pid 2608:tid 896] AH00354: Child: Starting 64 worker threads.
+[Tue Jun 02 05:58:12.513843 2020] [:error] [pid 2608:tid 1392] [client ::1:12218] PHP Notice:  Undefined index: keyword in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\search_keyword.php on line 4, referer: http://localhost:8080/
+[Tue Jun 02 05:59:16.947058 2020] [:error] [pid 2608:tid 1392] [client ::1:12231] PHP Notice:  Undefined index: keyword in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\search_keyword.php on line 4, referer: http://localhost:8080/
+[Tue Jun 02 05:59:17.873509 2020] [:error] [pid 2608:tid 1392] [client ::1:12231] PHP Notice:  Undefined index: keyword in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\search_keyword.php on line 4, referer: http://localhost:8080/
+[Tue Jun 02 05:59:20.763014 2020] [:error] [pid 2608:tid 1392] [client ::1:12231] PHP Notice:  Undefined index: keyword in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\search_keyword.php on line 4, referer: http://localhost:8080/
+[Tue Jun 02 05:59:29.075203 2020] [:error] [pid 2608:tid 1384] [client ::1:12236] PHP Notice:  Undefined variable: newjoke in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\add_joke.php on line 8, referer: http://localhost:8080/
+[Tue Jun 02 05:59:29.075203 2020] [:error] [pid 2608:tid 1384] [client ::1:12236] PHP Notice:  Undefined variable: newanswer in C:\\Users\\bingk\\Desktop\\Github\\Database-Server\\root\\add_joke.php on line 9, referer: http://localhost:8080/

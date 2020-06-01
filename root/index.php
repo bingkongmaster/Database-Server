@@ -15,6 +15,16 @@ include "db_connect.php";
   <input type="submit" value="Submit">
 </form>
 
+<hr>
+<form action="add_joke.php">
+  Input1:<br>
+  <input type="text" name="newjoke"><br>
+
+  Input2:<br>
+  <input type="text" name="newanswer"><br>
+  <input type="submit" value="Submit">
+</form>
+
 <?php
 //include "search_keyword.php";
 
