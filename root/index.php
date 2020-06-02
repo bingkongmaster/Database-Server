@@ -48,29 +48,19 @@ include "db_connect.php";
 
 <!-- End of bootstrap search UI -->
 
-<hr>
-<form action="add_joke.php">
-  Input1:<br>
-  <input type="text" name="newjoke"><br>
-
-  Input2:<br>
-  <input type="text" name="newanswer"><br>
-  <input type="submit" value="Submit">
-</form>
-
 <!-- Start of bootstrap add UI -->
 
 <form class="form-horizontal" action="add_joke.php">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Search</legend>
+<legend>Add</legend>
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="newjoke">Enter input</label>
   <div class="col-md-6">
-  <input id="newjoke" name="newjoke" type="text" placeholder="input 1" class="form-control input-md" required="">
+  <input id="newjoke" name="newjoke" type="text" placeholder="Input 1" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
 </div>
@@ -79,14 +69,14 @@ include "db_connect.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="newanswer">Enter input</label>
   <div class="col-md-6">
-  <input id="newanswer" name="newanswer" type="text" placeholder="input 2" class="form-control input-md" required="">
+  <input id="newanswer" name="newanswer" type="text" placeholder="Input 2" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
 </div>
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="submit">Single Button</label>
+  <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
     <button id="submit" name="submit" class="btn btn-primary">Add data</button>
   </div>
