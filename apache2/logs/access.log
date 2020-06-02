@@ -20,3 +20,17 @@
 ::1 - - [02/Jun/2020:06:09:10 +0900] "GET /phpmyadmin/index.php?token=9b064c16eca219f1a69b7bdc5bbb4425 HTTP/1.1" 200 42844
 ::1 - - [02/Jun/2020:06:09:11 +0900] "GET /phpmyadmin/version_check.php?&_nocache=1591045751050912694 HTTP/1.1" 200 39
 ::1 - - [02/Jun/2020:06:10:38 +0900] "GET /add_joke.php?newjoke=What+is+population+of+France&newanswer=66.99+million+%282019%29 HTTP/1.1" 200 460
+::1 - - [02/Jun/2020:06:15:03 +0900] "GET /add_joke.php?newjoke=s%27s&newanswer=66.99+million+%282019%29 HTTP/1.1" 200 68
+::1 - - [02/Jun/2020:06:17:19 +0900] "GET / HTTP/1.1" 200 390
+::1 - - [02/Jun/2020:06:17:22 +0900] "GET /add_joke.php?newjoke=%27%27%27&newanswer=%27%27 HTTP/1.1" 200 197
+::1 - - [02/Jun/2020:06:21:39 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:06:22:10 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 660
+::1 - - [02/Jun/2020:06:23:43 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 709
+::1 - - [02/Jun/2020:08:59:37 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 758
+::1 - - [02/Jun/2020:08:59:57 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:09:00:34 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:09:02:17 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:09:02:19 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:09:02:23 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 264
+::1 - - [02/Jun/2020:09:03:40 +0900] "GET /add_joke.php?newjoke=Who%27s+president+of+France%3F&newanswer=Emmanuel+Macron HTTP/1.1" 200 663
+::1 - - [02/Jun/2020:09:03:45 +0900] "GET /index.php HTTP/1.1" 200 390
