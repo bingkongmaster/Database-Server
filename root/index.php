@@ -10,7 +10,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>my page</h1>
+<h1>Koogle</h1>
+
+<!-- link buttons -->
+<a href="register_new_user.php" class="btn btn-info" role="button" style="margin-top:30px;">Register</a>
+<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
+<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
 
 <?php
 
@@ -74,7 +79,7 @@ include "db_connect.php";
   </div>
 </div>
 
-<!-- Button -->
+<!-- add data Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
