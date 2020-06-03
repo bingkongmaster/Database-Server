@@ -12,10 +12,12 @@
 <body>
 <h1>Koogle</h1>
 
+<legend>Home Page</legend>
+
 <!-- link buttons -->
-<a href="register_new_user.php" class="btn btn-info" role="button" style="margin-top:30px;">Register</a>
-<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
-<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
+<a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px;">Register</a>
+<a href="login_form.php" class="btn btn-info" role="button" style="margin:20px;">Login</a>
+<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 
 <?php
 
@@ -35,7 +37,7 @@ include "db_connect.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="keyword">Search Input</label>
   <div class="col-md-5">
-    <input id="keyword" name="keyword" type="search" placeholder="e.g. France" class="form-control input-md">
+    <input id="keyword" type="search" name="keyword" placeholder="e.g. France" class="form-control input-md">
     <p class="help-block">Search keyword</p>
   </div>
 </div>
@@ -65,7 +67,7 @@ include "db_connect.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="newjoke">Enter input</label>
   <div class="col-md-6">
-  <input id="newjoke" name="newjoke" type="text" placeholder="Input 1" class="form-control input-md" required="">
+  <input id="newjoke" type="text" name="newjoke" placeholder="Input 1" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
 </div>
@@ -74,7 +76,7 @@ include "db_connect.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="newanswer">Enter input</label>
   <div class="col-md-6">
-  <input id="newanswer" name="newanswer" type="text" placeholder="Input 2" class="form-control input-md" required="">
+  <input id="newanswer" type="text" name="newanswer" placeholder="Input 2" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
 </div>

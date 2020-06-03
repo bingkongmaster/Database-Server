@@ -61,5 +61,5 @@ if ($result->num_rows > 0) {
 <!-- Form Name -->
 
 <!-- Button -->
-<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
+<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 <!-- Return Button end -->

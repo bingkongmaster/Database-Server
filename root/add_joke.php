@@ -17,5 +17,5 @@ include "search_all_jokes.php";
 ?>
 
 <!-- Button -->
-<a href="index.php" class="btn btn-info" role="button" style="margin-top:30px;">Return</a>
+<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 <!-- Return Button end -->
