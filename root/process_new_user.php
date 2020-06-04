@@ -15,15 +15,25 @@
 <legend>Registration</legend>
 
 <?php
-
 include "db_connect.php";
+include 'Bcrypt.php';
 //data from register_new_user.php
 $new_username = $_GET['username'];
 $new_password1 = $_GET['password1'];
 $new_password2 = $_GET['password2'];
 
+//hash encryption
+//$hashed_password = password_hash($new_password1, PASSWORD_DEFAULT);
+$bcrypt = new Bcrypt(15);
+
+$hashed_password = $bcrypt->hash($new_password1);
+$isGood = $bcrypt->verify($new_password1, $hashed_password);
+//echo $hash;
+echo "isgood: " . $isGood;
+//echo "pw: " . $new_password1;
+
 echo "Added Username: " . $new_username . "</br>";
-echo "Added Passwword:" . $new_password1 . "</br>";
+//echo "Added Passwword:" . $new_password1 . "</br>";
 
 //check username duplication
 $sql = "SELECT * FROM users where username = '$new_username'";
@@ -39,6 +49,7 @@ else if($new_password1 != $new_password2){
 //register user
 else{
   //check SQL injection
+  echo "pw: " . $new_password1;
   preg_match('/[0-9]+/', $new_password1, $matches);
   if(sizeof($matches) == 0){
     echo "The password must have more than 0 character";
@@ -50,7 +61,7 @@ else{
     exit;
   }
   */
-  $sql = "INSERT INTO users (id, username, password) VALUES (null, '$new_username', '$new_password1')";
+  $sql = "INSERT INTO users (id, username, password) VALUES (null, '$new_username', '$hashed_password')";
   $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
 
   if($result){

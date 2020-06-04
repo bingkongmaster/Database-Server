@@ -11,8 +11,8 @@ if(! isset($_SESSION['username'])){
 }
 
 include "db_connect.php";
-$new_joke_question = $_GET["newjoke"];
-$new_joke_answer = $_GET["newanswer"];
+$new_joke_question = addslashes($_GET["newjoke"]);
+$new_joke_answer = addslashes($_GET["newanswer"]);
 $userid = $_SESSION['userid'];
 
 $new_joke_question = addslashes($new_joke_question);
