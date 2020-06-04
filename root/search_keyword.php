@@ -32,6 +32,8 @@ $keywordfromform = $_GET["keyword"];
 
 //Search database for key word
 echo "<h1>Searched: $keywordfromform</h1>";
+$keywordfromform = "%" . $keywordfromform . "%";
+/*
 $sql = "
 SELECT JokeID, Joke_question, Joke_answer, users_id, username
 FROM Jokes_table
@@ -39,17 +41,29 @@ JOIN users ON users.id = jokes_table.users_id
 WHERE Joke_question LIKE '%$keywordfromform%'
 ";
 $result = $mysqli->query($sql);
+*/
+//Search matching username/password
+$stmt = $mysqli->prepare("
+  SELECT JokeID, Joke_question, Joke_answer, users_id, username
+  FROM Jokes_table
+  JOIN users ON users.id = jokes_table.users_id
+  WHERE Joke_question LIKE ?
+  ");
+$stmt->bind_param("s", $keywordfromform);
+$stmt->execute();
+$stmt->store_result();
 
+$stmt->bind_result($JokeID, $Joke_question, $Joke_answer, $users_id, $username);
 ?>
 <!-- jQuery accodion UI start -->
 <div id="accordion">
 <?php
-if ($result->num_rows > 0) {
+if ($stmt->num_rows > 0) {
   // output data of each row
-  while($row = $result->fetch_assoc()) {
+  while($stmt->fetch()) {
     //echo "id: " . $row["JokeID"]. " - Name: " . $row["Joke_question"]. " " . $row["Joke_answer"]. "<br>";
-    echo "<h3>" . $row["Joke_question"] . "</h3>";
-    echo "<div><p>$row[Joke_answer]<br>By: $row[username]</p></div>";
+    echo "<h3>" . $Joke_question . "</h3>";
+    echo "<div><p>$Joke_answer<br>By: $username</p></div>";
   }
 } else {
   echo "0 results";

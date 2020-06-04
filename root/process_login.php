@@ -14,7 +14,7 @@ $password = $_POST['password'];
 echo "Login: " . $username . "/" . $password . "<br>";
 
 //Search matching username/password
-$stmt = $mysqli->prepare("SELECT id, username, password FROM users where username = ? and password = ?");
+$stmt = $mysqli->prepare("SELECT id, username, password FROM users WHERE username = ? AND password = ?");
 $stmt->bind_param("ss",$username, $password);
 $stmt->execute();
 $stmt->store_result();
