@@ -32,7 +32,12 @@ $keywordfromform = $_GET["keyword"];
 
 //Search database for key word
 echo "<h1>Searched: $keywordfromform</h1>";
-$sql = "SELECT JokeID, Joke_question, Joke_answer, users_id FROM Jokes_table WHERE Joke_question LIKE '%" . $keywordfromform . "%'";
+$sql = "
+SELECT JokeID, Joke_question, Joke_answer, users_id, username
+FROM Jokes_table
+JOIN users ON users.id = jokes_table.users_id
+WHERE Joke_question LIKE '%$keywordfromform%'
+";
 $result = $mysqli->query($sql);
 
 ?>
@@ -44,7 +49,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     //echo "id: " . $row["JokeID"]. " - Name: " . $row["Joke_question"]. " " . $row["Joke_answer"]. "<br>";
     echo "<h3>" . $row["Joke_question"] . "</h3>";
-    echo "<div><p>$row[Joke_answer]<br>By: $row[users_id]</p></div>";
+    echo "<div><p>$row[Joke_answer]<br>By: $row[username]</p></div>";
   }
 } else {
   echo "0 results";
