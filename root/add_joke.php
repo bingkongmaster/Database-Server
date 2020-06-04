@@ -18,8 +18,12 @@ $userid = $_SESSION['userid'];
 $new_joke_question = addslashes($new_joke_question);
 $new_joke_answer = addslashes($new_joke_answer);
 //Search database for key word
-echo "<h2>Added: $new_joke_question </h2>";
-echo "<h2>Added: $new_joke_answer </h2>";
+echo "<h1>Added</h2>";
+echo "<h2>Question: $new_joke_question </h2>";
+echo "<h2>Answer: $new_joke_answer </h2>";
+echo "<h2>Username: $_SESSION[username]</h2>";
+echo "<h2>ID: $_SESSION[userid]</h2>";
+
 $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, users_id) VALUES (null, '$new_joke_question', '$new_joke_answer', '$userid')";
 $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
 

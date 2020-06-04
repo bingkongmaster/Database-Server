@@ -27,10 +27,11 @@ $stmt->bind_result($userid, $uname, $pw);
 if ($stmt->num_rows > 0) {
   // output data of each row
   $row = $stmt->fetch();
-  $userid = $row['id'];
   echo "Login success!<br>";
   $_SESSION['username'] = $uname;
   $_SESSION['userid'] = $userid;
+  echo "ID: $_SESSION[username]<br>";
+  echo "ID: $_SESSION[userid]<br>";
 } else {
   echo "No user found";
   $_SESSION = [];
