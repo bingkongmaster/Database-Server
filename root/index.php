@@ -5,26 +5,52 @@
 
 </head>
 <body>
-<?php
+  <?php
 
-session_start();
-include "db_connect.php";
-echo "<h1>Koogle</h1>";
-if(isSet($_SESSION['username'])){
-  echo "<p>Welcome, $_SESSION[username]</p>";
-}
-else{
-  echo "Log in!";
-}
-?>
+  session_start();
+  include "db_connect.php";
+  /*
+  echo "<h1>Koogle</h1>";
+  if(isSet($_SESSION['username'])){
+    echo "<h1>Welcome, $_SESSION[username]</h1>";
+  }
+  else{
+    echo "<h1>Log in!</h1>";
+  }
+  */
+  ?>
 
-<legend>Home Page</legend>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Koogle</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="register_new_user.php">Register</a></li>
+        <li><a href="login_form.php">Login</a></li>
+      </ul>
+    </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <?php
+          //echo "<span style='float:right;'> Hello </span>";
+          if(isSet($_SESSION['username'])){
+            echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
+          }
+          else{
+            echo '<a class="navbar-brand" href="#">Not Welcome</a>';
+          }
+        ?>
+      </div>
+  </nav>
 
 <!-- link buttons -->
+<!--
 <a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px;">Register</a>
 <a href="login_form.php" class="btn btn-info" role="button" style="margin:20px;">Login</a>
 <a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
-
+-->
 
 
 <!-- Start of bootstrap search UI -->
