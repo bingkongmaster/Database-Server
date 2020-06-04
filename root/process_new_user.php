@@ -38,6 +38,18 @@ else if($new_password1 != $new_password2){
 }
 //register user
 else{
+  //check SQL injection
+  preg_match('/[0-9]+/', $new_password1, $matches);
+  if(sizeof($matches) == 0){
+    echo "The password must have more than 0 character";
+    exit;
+  }
+  /*
+  if(strlen($new_password1) < 8){
+    echo "password must be > 8";
+    exit;
+  }
+  */
   $sql = "INSERT INTO users (id, username, password) VALUES (null, '$new_username', '$new_password1')";
   $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
 
