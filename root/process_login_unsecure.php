@@ -8,8 +8,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include "db_connect.php";
-$username = $_GET["username"];
-$password = $_GET["password"];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 echo "Login: " . $username . "/" . $password . "<br>";
 
