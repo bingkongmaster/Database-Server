@@ -3,14 +3,20 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Koogle</h1>
+<?php
+
+session_start();
+include "db_connect.php";
+echo "<h1>Koogle</h1>";
+if(isSet($_SESSION['username'])){
+  echo "<p>Welcome, $_SESSION[username]</p>";
+}
+else{
+  echo "Log in!";
+}
+?>
 
 <legend>Home Page</legend>
 
@@ -19,11 +25,7 @@
 <a href="login_form.php" class="btn btn-info" role="button" style="margin:20px;">Login</a>
 <a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 
-<?php
 
-include "db_connect.php";
-//include "search_all_jokes.php";
-?>
 
 <!-- Start of bootstrap search UI -->
 
@@ -99,6 +101,10 @@ include "db_connect.php";
 
 $mysqli->close();
 ?>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
