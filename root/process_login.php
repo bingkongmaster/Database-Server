@@ -14,18 +14,22 @@ $password = $_POST['password'];
 echo "Login: " . $username . "/" . $password . "<br>";
 
 //Search matching username/password
-$sql = "SELECT id, username, password FROM users WHERE username = '$username' AND password = '$password'";
-$result = $mysqli->query($sql);
+$stmt = $mysqli->prepare("SELECT id, username, password FROM users where username = ? and password = ?");
+$stmt->bind_param("ss",$username, $password);
+$stmt->execute();
+$stmt->store_result();
+
+$stmt->bind_result($userid, $uname, $pw);
 
 ?>
 
 <?php
-if ($result->num_rows > 0) {
+if ($stmt->num_rows > 0) {
   // output data of each row
-  $row = $result->fetch_assoc();
+  $row = $stmt->fetch();
   $userid = $row['id'];
   echo "Login success!<br>";
-  $_SESSION['username'] = $username;
+  $_SESSION['username'] = $uname;
   $_SESSION['userid'] = $userid;
 } else {
   echo "No user found";

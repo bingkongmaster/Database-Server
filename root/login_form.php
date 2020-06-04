@@ -20,7 +20,7 @@ include "db_connect.php";
 
 <!-- Start of bootstrap search UI -->
 
-<form class="form-horizontal" action="process_login_unsecure.php" method="post">
+<form class="form-horizontal" action="process_login.php" method="post">
 <fieldset>
 
 <!-- Form Name -->
