@@ -61,11 +61,11 @@ if ($stmt->num_rows == 1){
   //echo $bcrypt->hash($password);
   //echo $pw;
   if($bcrypt->verify($password, $pw)){
-    echo "<h2>Login success!</h2><br>";
+    echo "<legend>Login success!</legend>";
     $_SESSION['username'] = $uname;
     $_SESSION['userid'] = $userid;
-    echo "<h2>Username: $_SESSION[username]</h2><br>";
-    echo "<h2>ID: $_SESSION[userid]</h2><br>";
+    echo "<p>Username: $_SESSION[username]</p><br>";
+    echo "<p>ID: $_SESSION[userid]</p><br>";
   }
   else{
     echo "Password is different<br>";
@@ -95,12 +95,7 @@ echo "</pre>";
 
 <!-- Form Name -->
 
-<!-- Return Button end -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

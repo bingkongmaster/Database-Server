@@ -54,7 +54,7 @@ $isGood = $bcrypt->verify($new_password1, $hashed_password);
 //echo "isgood: " . $isGood;
 //echo "pw: " . $new_password1;
 
-echo "<h2>Added Username: " . $new_username . "</br></h2>";
+
 //echo "Added Passwword:" . $new_password1 . "</br>";
 
 //check username duplication
@@ -86,10 +86,11 @@ else{
   $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
 
   if($result){
-    echo "Registeration success!" . "</br>";
+    echo "<legend>Registeration success!</legend>";
+    echo "<h2>Added Username: " . $new_username . "</br></h2>";
   }
   else{
-    echo "Registeration error!" . "</br>";
+    echo "<legend>Registeration failed!</legend>";
   }
 }
 
@@ -98,10 +99,6 @@ else{
 
 <!--<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>-->
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
