@@ -87,7 +87,7 @@ else{
 
   if($result){
     echo "<legend>Registeration success!</legend>";
-    echo "<h2>Added Username: " . $new_username . "</br></h2>";
+    echo "<p>Added Username: " . $new_username . "</br></p>";
   }
   else{
     echo "<legend>Registeration failed!</legend>";

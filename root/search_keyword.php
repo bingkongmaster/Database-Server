@@ -5,19 +5,14 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--
   <script>
   $( function() {
     $( "#accordion" ).accordion();
   } );
   </script>
-
+-->
   <style>
     * {
         font-family:Arial, Helvetica, sans-serif;
@@ -61,7 +56,7 @@ include "db_connect.php";
 $keywordfromform = $_GET["keyword"];
 
 //Search database for key word
-echo "<h1>Searched: $keywordfromform</h1>";
+echo "<legend>Searched: $keywordfromform</legend>";
 $keywordfromform = "%" . $keywordfromform . "%";
 /*
 $sql = "
@@ -107,10 +102,13 @@ if ($stmt->num_rows > 0) {
 <form class="form-horizontal">
 <fieldset>
 
-<!-- Form Name -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Return Button end -->
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="display_accordion.js"></script>
 
 </html>
