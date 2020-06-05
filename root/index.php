@@ -7,19 +7,12 @@
 <body>
   <?php
 
+  //connect to database
   include "db_connect.php";
+  //start session
   session_start();
-  /*
-  echo "<h1>Koogle</h1>";
-  if(isSet($_SESSION['username'])){
-    echo "<h1>Welcome, $_SESSION[username]</h1>";
-  }
-  else{
-    echo "<h1>Log in!</h1>";
-  }
-  */
   ?>
-
+  <!-- navigation bar -->
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -36,7 +29,6 @@
       <div class="navbar-header">
         <li>
           <?php
-            //echo "<span style='float:right;'> Hello </span>";
             if(isSet($_SESSION['username'])){
               echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
             }
@@ -46,14 +38,8 @@
           ?>
         </li>
       </div>
+    </div>
   </nav>
-<!-- link buttons -->
-<!--
-<a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px;">Register</a>
-<a href="login_form.php" class="btn btn-info" role="button" style="margin:20px;">Login</a>
-<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
--->
-
 
 <!-- Start of bootstrap search UI -->
 
@@ -125,8 +111,7 @@
 <!-- End of bootstrap add UI -->
 
 <?php
-//include "search_keyword.php";
-
+//close DB connection
 $mysqli->close();
 ?>
 

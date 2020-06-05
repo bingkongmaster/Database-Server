@@ -1,6 +1,5 @@
 <?php
-
-  include "db_connect.php";
+  //destroy session and go home page
   session_start();
 
   $_SESSION = [];

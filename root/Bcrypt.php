@@ -1,4 +1,5 @@
 <?php
+// password hash encryption
 class Bcrypt{
   private $rounds;
 

@@ -5,14 +5,6 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-
-<!--
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>
--->
   <style>
     * {
         font-family:Arial, Helvetica, sans-serif;
@@ -21,11 +13,12 @@
 </head>
 
 <?php
-
-session_start();
+//connect to DB
 include "db_connect.php";
+//start session
+session_start();
 ?>
-
+<!-- navigation bar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -50,23 +43,17 @@ include "db_connect.php";
         }
       ?>
     </div>
+  </div>
 </nav>
 
 <?php
+//get keeyword from index.php
 $keywordfromform = $_GET["keyword"];
 
 //Search database for key word
 echo "<legend>Searched: $keywordfromform</legend>";
 $keywordfromform = "%" . $keywordfromform . "%";
-/*
-$sql = "
-SELECT JokeID, Joke_question, Joke_answer, users_id, username
-FROM Jokes_table
-JOIN users ON users.id = jokes_table.users_id
-WHERE Joke_question LIKE '%$keywordfromform%'
-";
-$result = $mysqli->query($sql);
-*/
+
 //Search matching username/password
 $stmt = $mysqli->prepare("
   SELECT JokeID, Joke_question, Joke_answer, users_id, username
@@ -80,13 +67,14 @@ $stmt->store_result();
 
 $stmt->bind_result($JokeID, $Joke_question, $Joke_answer, $users_id, $username);
 ?>
+
+<!-- Display table including keyword -->
 <!-- jQuery accodion UI start -->
 <div id="accordion">
 <?php
 if ($stmt->num_rows > 0) {
   // output data of each row
   while($stmt->fetch()) {
-    //echo "id: " . $row["JokeID"]. " - Name: " . $row["Joke_question"]. " " . $row["Joke_answer"]. "<br>";
     echo "<h3>" . $Joke_question . "</h3>";
     echo "<div><p>$Joke_answer<br>By: $username</p></div>";
   }
@@ -98,13 +86,10 @@ if ($stmt->num_rows > 0) {
 </div>
 <!-- jQuery accodion UI end -->
 
-<!-- Return Button start -->
-<form class="form-horizontal">
-<fieldset>
+<!-- javascripts -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

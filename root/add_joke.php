@@ -4,14 +4,16 @@
 </head>
 <body>
 <?php
-
+//start session
 session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+//connect to database
 include "db_connect.php";
 ?>
+<!-- navbar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -27,7 +29,6 @@ include "db_connect.php";
   <div class="container-fluid">
     <div class="navbar-header">
       <?php
-        //echo "<span style='float:right;'> Hello </span>";
         if(isSet($_SESSION['username'])){
           echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
         }
@@ -36,33 +37,32 @@ include "db_connect.php";
         }
       ?>
     </div>
+  </div>
 </nav>
 <?php
-
+//if not logged in, can't add information
 if(! isset($_SESSION['username'])){
-  echo "<legend>Login to add info</legend>";
+  echo "<legend>Login to add information</legend>";
 
   //echo "<a href="login_form.php" class="btn btn-info" role="button" style="margin:20px">Login</a>"
   //echo "<a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px">Register</a><br>"
   exit;
 }
-
+//add slash vs "
 $new_joke_question = addslashes($_GET["newjoke"]);
 $new_joke_answer = addslashes($_GET["newanswer"]);
 $userid = $_SESSION['userid'];
 
-$new_joke_question = addslashes($new_joke_question);
-$new_joke_answer = addslashes($new_joke_answer);
-//Search database for key word
 echo "<legend>Data Added</legend>";
-echo "<h2>Question: $new_joke_question </h2>";
-echo "<h2>Answer: $new_joke_answer </h2>";
-echo "<h2>Username: $_SESSION[username]</h2>";
-echo "<h2>ID: $_SESSION[userid]</h2>";
+echo "<p>Question: $new_joke_question </p>";
+echo "<p>Answer: $new_joke_answer </p>";
+echo "<p>By: $_SESSION[username]</p>";
 
+//add data to SQL
 $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, users_id) VALUES (null, '$new_joke_question', '$new_joke_answer', '$userid')";
 $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
 
+//display all jokes
 include "search_all_jokes.php";
 
 ?>

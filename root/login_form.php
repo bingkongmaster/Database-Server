@@ -8,11 +8,12 @@
 
 <?php
 
+//connect to database
 include "db_connect.php";
+//start session
 session_start();
-//include "search_all_jokes.php";
 ?>
-
+<!-- navigation bar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,7 +29,6 @@ session_start();
   <div class="container-fluid">
     <div class="navbar-header">
       <?php
-        //echo "<span style='float:right;'> Hello </span>";
         if(isSet($_SESSION['username'])){
           echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
         }
@@ -37,6 +37,7 @@ session_start();
         }
       ?>
     </div>
+  </div>
 </nav>
 
 <!-- Start of bootstrap search UI -->
@@ -79,11 +80,9 @@ session_start();
 <!-- End of bootstrap search UI -->
 
 <?php
-//include "search_keyword.php";
-
+//close DB connection
 $mysqli->close();
 ?>
-
 
 </body>
 </html>

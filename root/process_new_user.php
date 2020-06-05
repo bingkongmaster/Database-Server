@@ -7,11 +7,14 @@
 <body>
 
 <?php
+//connect to DB
 include "db_connect.php";
+//password hash encryption
 include 'Bcrypt.php';
+//start session
 session_start();
 ?>
-
+<!-- navigation bar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -27,7 +30,6 @@ session_start();
   <div class="container-fluid">
     <div class="navbar-header">
       <?php
-        //echo "<span style='float:right;'> Hello </span>";
         if(isSet($_SESSION['username'])){
           echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
         }
@@ -36,6 +38,7 @@ session_start();
         }
       ?>
     </div>
+  </div>
 </nav>
 
 <?php
@@ -45,17 +48,10 @@ $new_password1 = $_GET['password1'];
 $new_password2 = $_GET['password2'];
 
 //hash encryption
-//$hashed_password = password_hash($new_password1, PASSWORD_DEFAULT);
 $bcrypt = new Bcrypt(15);
 
 $hashed_password = $bcrypt->hash($new_password1);
 $isGood = $bcrypt->verify($new_password1, $hashed_password);
-//echo $hash;
-//echo "isgood: " . $isGood;
-//echo "pw: " . $new_password1;
-
-
-//echo "Added Passwword:" . $new_password1 . "</br>";
 
 //check username duplication
 $sql = "SELECT * FROM users where username = '$new_username'";
@@ -68,16 +64,8 @@ if($result->num_rows > 0){
 else if($new_password1 != $new_password2){
   echo "<h3>Passwords are different!" . "</br></h3>";
 }
-//register user
+//Can register: add userid, username, and hashed passwword to sql
 else{
-  //check SQL injection
-  /*
-  preg_match('/[0-9]+/', $new_password1, $matches);
-  if(sizeof($matches) == 0){
-    echo "The password must have more than 0 character";
-    exit;
-  }
-  */
   if(strlen($new_password1) == 0){
     echo "password must be > 0";
     exit;

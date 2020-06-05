@@ -5,17 +5,20 @@
 <body>
 <?php
 
-session_start();
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+//connect to DB
 include "db_connect.php";
+//encryption hash
 include "Bcrypt.php";
+//username/password from login_form
 $username = $_POST['username'];
 $password = $_POST['password'];
-?>
 
+//start session
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+<!-- navigation bar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -31,7 +34,6 @@ $password = $_POST['password'];
   <div class="container-fluid">
     <div class="navbar-header">
       <?php
-        //echo "<span style='float:right;'> Hello </span>";
         if(isSet($_SESSION['username'])){
           echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
         }
@@ -40,26 +42,25 @@ $password = $_POST['password'];
         }
       ?>
     </div>
+  </div>
 </nav>
 
 <?php
-//echo "Login: " . $username . "/" . $password . "<br>";
 
-//Search matching username/password
+//Search matching username/password securely
 $stmt = $mysqli->prepare("SELECT id, username, password FROM users WHERE username = ?");
 $stmt->bind_param("s",$username);
 $stmt->execute();
 $stmt->store_result();
 
 $stmt->bind_result($userid, $uname, $pw);
-//echo "username: " . $username . "<br>";
-//echo "uname: " . $uname . "<br>";
+
+//if found username, get information, check password with encryption.
 if ($stmt->num_rows == 1){
-  //echo "One person found";
   $stmt->fetch();
   $bcrypt = new Bcrypt(15);
-  //echo $bcrypt->hash($password);
-  //echo $pw;
+
+  //if password is right, log in session
   if($bcrypt->verify($password, $pw)){
     echo "<legend>Login success!</legend>";
     $_SESSION['username'] = $uname;
@@ -67,33 +68,21 @@ if ($stmt->num_rows == 1){
     echo "<p>Username: $_SESSION[username]</p><br>";
     echo "<p>ID: $_SESSION[userid]</p><br>";
   }
+  //if password is not right, end session
   else{
     echo "Password is different<br>";
     $_SESSION = [];
     session_destroy();
   }
 }
+//if no user is found, end session
 else{
   echo "No user found<br>";
   $_SESSION = [];
   session_destroy();
 }
 
-/*
-echo "SESSION = <br>";
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-*/
 ?>
-</div>
-<!-- jQuery accodion UI end -->
-
-<!-- Return Button start -->
-<form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
 
 </body>
 </html>
