@@ -34,7 +34,7 @@
     </div>
     <div class="container-fluid">
       <div class="navbar-header">
-        <li class="disabled">
+        <li>
           <?php
             //echo "<span style='float:right;'> Hello </span>";
             if(isSet($_SESSION['username'])){
@@ -47,9 +47,6 @@
         </li>
       </div>
   </nav>
-  <div ng-app="APP">
-  <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
-  </div>
 <!-- link buttons -->
 <!--
 <a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px;">Register</a>
@@ -133,9 +130,16 @@
 $mysqli->close();
 ?>
 
+<!-- Timer/auto-logout -->
+<div ng-app="APP">
+<timer interval="1000"><p style="text-align:right;">Online for: {{minutes}} minutes {{seconds}} seconds.</p></timer>
+</div>
+
+<!-- Timer Javascript -->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
 <script src="timer.js"></script>
 <script src="activate_timer.js"></script>
+<!-- Script to uses innerHTML -->
 
 </body>
 </html>

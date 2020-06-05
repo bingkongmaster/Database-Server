@@ -67,7 +67,5 @@ include "search_all_jokes.php";
 
 ?>
 
-
-
 </body>
 </html>

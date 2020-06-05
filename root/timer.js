@@ -77,6 +77,12 @@ angular.module('timer', [])
                     $scope.hours = Math.floor((($scope.millis / (1000 * 60 * 60)) % 24));
                     $scope.days = Math.floor((($scope.millis / (1000 * 60 * 60)) / 24));
                     //We are not using $timeout for a reason. Please read here - https://github.com/siddii/angular-timer/pull/5
+
+                    //auto-logout after 10min
+                    if($scope.minutes > 10){
+                      window.location.href = "process_logout.php";
+                    }
+
                     $scope.timeoutId = setTimeout(function () {
                         tick();
                         $scope.$apply();

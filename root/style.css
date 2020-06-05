@@ -1,7 +1,5 @@
 body,html {
-	margin:0px;
-	padding: 0px;
-	background: #2D649C url('images/background.jpg') repeat-x fixed top;
+	overflow-x:hidden;
 }
 #container{
 	width: 920px;
@@ -153,5 +151,3 @@ h2 {font-size: 125%;}
 .h img{	display:none;}
 .h { background-color: #2D649C; color:white; }
 hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
-
-			
