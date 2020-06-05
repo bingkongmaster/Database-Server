@@ -34,18 +34,22 @@
     </div>
     <div class="container-fluid">
       <div class="navbar-header">
-        <?php
-          //echo "<span style='float:right;'> Hello </span>";
-          if(isSet($_SESSION['username'])){
-            echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
-          }
-          else{
-            echo '<a class="navbar-brand" href="#">Not Welcome</a>';
-          }
-        ?>
+        <li class="disabled">
+          <?php
+            //echo "<span style='float:right;'> Hello </span>";
+            if(isSet($_SESSION['username'])){
+              echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
+            }
+            else{
+              echo '<a class="navbar-brand" href="#">Not Welcome</a>';
+            }
+          ?>
+        </li>
       </div>
   </nav>
-
+  <div ng-app="APP">
+  <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
+  </div>
 <!-- link buttons -->
 <!--
 <a href="register_new_user.php" class="btn btn-info" role="button" style="margin:20px;">Register</a>
@@ -95,7 +99,7 @@
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="newjoke">Enter input</label>
-  <div class="col-md-6">
+  <div class="col-md-5">
   <input id="newjoke" type="text" name="newjoke" placeholder="Input 1" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
@@ -104,7 +108,7 @@
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="newanswer">Enter input</label>
-  <div class="col-md-6">
+  <div class="col-md-5">
   <input id="newanswer" type="text" name="newanswer" placeholder="Input 2" class="form-control input-md" required="">
   <span class="help-block">* Required field</span>
   </div>
@@ -128,5 +132,10 @@
 
 $mysqli->close();
 ?>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+<script src="timer.js"></script>
+<script src="activate_timer.js"></script>
+
 </body>
 </html>
