@@ -7,8 +7,8 @@
 <body>
   <?php
 
-  session_start();
   include "db_connect.php";
+  session_start();
   /*
   echo "<h1>Koogle</h1>";
   if(isSet($_SESSION['username'])){
@@ -29,6 +29,7 @@
         <li class="active"><a href="index.php">Home</a></li>
         <li><a href="register_new_user.php">Register</a></li>
         <li><a href="login_form.php">Login</a></li>
+        <li><a href="process_logout.php">Log out</a></li>
       </ul>
     </div>
     <div class="container-fluid">

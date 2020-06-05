@@ -1,5 +1,8 @@
+<html>
 <head>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
 <?php
 
 session_start();
@@ -11,8 +14,36 @@ include "db_connect.php";
 include "Bcrypt.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
+?>
 
-echo "Login: " . $username . "/" . $password . "<br>";
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Koogle</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.php">Home</a></li>
+      <li><a href="register_new_user.php">Register</a></li>
+      <li class="active"><a href="login_form.php">Login</a></li>
+      <li><a href="process_logout.php">Log out</a></li>
+    </ul>
+  </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <?php
+        //echo "<span style='float:right;'> Hello </span>";
+        if(isSet($_SESSION['username'])){
+          echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
+        }
+        else{
+          echo '<a class="navbar-brand" href="#">Not Welcome</a>';
+        }
+      ?>
+    </div>
+</nav>
+
+<?php
+//echo "Login: " . $username . "/" . $password . "<br>";
 
 //Search matching username/password
 $stmt = $mysqli->prepare("SELECT id, username, password FROM users WHERE username = ?");
@@ -21,10 +52,10 @@ $stmt->execute();
 $stmt->store_result();
 
 $stmt->bind_result($userid, $uname, $pw);
-echo "username: " . $username . "<br>";
-echo "uname: " . $uname . "<br>";
+//echo "username: " . $username . "<br>";
+//echo "uname: " . $uname . "<br>";
 if ($stmt->num_rows == 1){
-  echo "One person found";
+  //echo "One person found";
   $stmt->fetch();
   $bcrypt = new Bcrypt(15);
   //echo $bcrypt->hash($password);
@@ -48,11 +79,12 @@ else{
   session_destroy();
 }
 
+/*
 echo "SESSION = <br>";
 echo "<pre>";
 print_r($_SESSION);
 echo "</pre>";
-
+*/
 ?>
 </div>
 <!-- jQuery accodion UI end -->
@@ -66,3 +98,11 @@ echo "</pre>";
 <!-- Button -->
 <a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 <!-- Return Button end -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

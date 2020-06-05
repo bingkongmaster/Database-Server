@@ -8,8 +8,8 @@
 
 <?php
 
-session_start();
 include "db_connect.php";
+session_start();
 //include "search_all_jokes.php";
 ?>
 
@@ -22,6 +22,7 @@ include "db_connect.php";
       <li><a href="index.php">Home</a></li>
       <li><a href="register_new_user.php">Register</a></li>
       <li class="active"><a href="login_form.php">Login</a></li>
+      <li><a href="process_logout.php">Log out</a></li>
     </ul>
   </div>
   <div class="container-fluid">
