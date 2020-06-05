@@ -5,13 +5,38 @@
 
 </head>
 <body>
-<h1>Koogle</h1>
 
 <?php
 
+session_start();
 include "db_connect.php";
 //include "search_all_jokes.php";
 ?>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Koogle</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.php">Home</a></li>
+      <li><a href="register_new_user.php">Register</a></li>
+      <li class="active"><a href="login_form.php">Login</a></li>
+    </ul>
+  </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <?php
+        //echo "<span style='float:right;'> Hello </span>";
+        if(isSet($_SESSION['username'])){
+          echo '<a class="navbar-brand" href="#">Welcome ' . $_SESSION["username"] . '</a>';
+        }
+        else{
+          echo '<a class="navbar-brand" href="#">Not Welcome</a>';
+        }
+      ?>
+    </div>
+</nav>
 
 <!-- Start of bootstrap search UI -->
 
