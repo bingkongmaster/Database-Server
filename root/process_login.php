@@ -25,7 +25,7 @@ $password = $_POST['password'];
       <li><a href="index.php">Home</a></li>
       <li><a href="register_new_user.php">Register</a></li>
       <li class="active"><a href="login_form.php">Login</a></li>
-      <li><a href="process_logout.php">Log out</a></li>
+      <li><a href="process_logout.php">Logout</a></li>
     </ul>
   </div>
   <div class="container-fluid">
@@ -95,8 +95,6 @@ echo "</pre>";
 
 <!-- Form Name -->
 
-<!-- Button -->
-<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
 <!-- Return Button end -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

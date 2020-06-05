@@ -21,7 +21,7 @@ session_start();
       <li><a href="index.php">Home</a></li>
       <li class="active"><a href="register_new_user.php">Register</a></li>
       <li><a href="login_form.php">Login</a></li>
-      <li><a href="process_logout.php">Log out</a></li>
+      <li><a href="process_logout.php">Logout</a></li>
     </ul>
   </div>
   <div class="container-fluid">
@@ -96,7 +96,7 @@ else{
 ?>
 
 
-<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>
+<!--<a href="index.php" class="btn btn-info" role="button" style="margin:20px;">Return</a>-->
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

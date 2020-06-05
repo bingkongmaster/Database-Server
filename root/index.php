@@ -29,7 +29,7 @@
         <li class="active"><a href="index.php">Home</a></li>
         <li><a href="register_new_user.php">Register</a></li>
         <li><a href="login_form.php">Login</a></li>
-        <li><a href="process_logout.php">Log out</a></li>
+        <li><a href="process_logout.php">Logout</a></li>
       </ul>
     </div>
     <div class="container-fluid">
@@ -128,10 +128,5 @@
 
 $mysqli->close();
 ?>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
